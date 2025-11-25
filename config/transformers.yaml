@@ -1,0 +1,41 @@
+transformers:
+  dataset_names:
+    - airline_us
+    - airline_global
+    - airline_merged
+
+  common:
+    max_length: 64
+    batch_size: 32
+    num_workers: 4
+    epochs: 4
+    learning_rate: 2e-5
+    weight_decay: 0.0
+    warmup_ratio: 0.1
+    gradient_accumulation_steps: 1
+    max_grad_norm: 1.0
+    logging_steps: 50
+    eval_steps: 200
+    save_total_limit: 2
+    metric_for_best: "val_macro_f1"
+    greater_is_better: true
+
+  models:
+    bert_base:
+      model_name: "bert-base-uncased"
+      enabled: true
+    bert_large:
+      model_name: "bert-large-uncased"
+      enabled: true
+    electra_base:
+      model_name: "google/electra-base-discriminator"
+      enabled: true
+    albert_base:
+      model_name: "albert-base-v2"
+      enabled: true
+    roberta_base:
+      model_name: "roberta-base"
+      enabled: true
+    distilbert_base:
+      model_name: "distilbert-base-uncased"
+      enabled: true
