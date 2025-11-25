@@ -1,0 +1,56 @@
+cnn_bilstm:
+  # Data
+  dataset_names:
+    - airline_us
+    - airline_global
+    - airline_merged
+  max_length: 60          # should match preprocessing.max_length in config.yaml
+  batch_size: 64
+  num_workers: 4
+
+  # Word2Vec
+  word2vec:
+    embedding_dim: 300
+    window: 5
+    min_count: 2
+    workers: 4
+    sg: 1                # 1 = skip-gram, 0 = CBOW
+    epochs: 10
+    train_on:
+      - airline_us
+      - airline_global
+      - airline_merged   # we’ll effectively use all training tweets
+
+  # Model architecture
+  model:
+    embedding_dim: 300
+    freeze_embeddings: false
+    conv_out_channels: 100
+    conv_kernel_sizes: [3, 4, 5]
+    conv_stride: 1
+    conv_padding: "same"
+    bilstm_hidden_size: 128
+    bilstm_num_layers: 1
+    bilstm_bidirectional: true
+    dropout: 0.5
+    num_classes: 3
+
+  # Training
+  training:
+    epochs: 20
+    optimizer: "adam"
+    learning_rate: 0.001
+    weight_decay: 0.0001
+    grad_clip: 5.0
+    early_stopping:
+      enabled: true
+      patience: 3
+      monitor: "val_macro_f1"
+      mode: "max"
+
+  # Logging / checkpoints
+  logging:
+    log_interval: 50
+    save_best_only: true
+    metric_for_best: "val_macro_f1"
+    save_dir: "checkpoints/cnn_bilstm"
