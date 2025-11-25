@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airline-tweet-sentiment"
+version = "0.1.0"
+description = "End-to-end implementation of transformer-based sentiment analysis for airline service reviews."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Avishek Majumder" }
+]
+
+dependencies = [
+  "numpy>=1.24.0",
+  "pandas>=2.0.0",
+  "pyyaml>=6.0.0",
+  "tqdm>=4.66.0",
+  "scikit-learn>=1.3.0",
+  "nltk>=3.8.1",
+  "gensim>=4.3.0",
+  "torch>=2.0.0",
+  "transformers>=4.40.0",
+  "matplotlib>=3.8.0",
+]
+
+[project.urls]
+"Homepage" = "https://ieeexplore.ieee.org/abstract/document/10796289"
+"Source"   = "https://github.com/your-username/airline-tweet-sentiment"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
