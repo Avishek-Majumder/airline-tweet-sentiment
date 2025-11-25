@@ -1,0 +1,72 @@
+ml_experiments:
+  enabled_models:
+    - logistic_regression
+    - knn
+    - svm
+    - decision_tree
+    - random_forest
+    - adaboost
+
+  features:
+    use_tfidf: true
+    use_bow: true
+
+  tfidf:
+    max_features: 5000
+    ngram_range: [1, 2]
+    min_df: 2
+    max_df: 0.95
+    sublinear_tf: true
+    use_idf: true
+
+  bow:
+    max_features: 5000
+    ngram_range: [1, 2]
+    min_df: 2
+    max_df: 0.95
+    binary: false
+
+models:
+  logistic_regression:
+    C: 1.0
+    penalty: "l2"
+    solver: "lbfgs"
+    max_iter: 1000
+    class_weight: "balanced"
+
+  knn:
+    n_neighbors: 5
+    weights: "distance"
+    metric: "minkowski"
+    p: 2
+
+  svm:
+    C: 1.0
+    kernel: "linear"
+    gamma: "scale"
+    class_weight: "balanced"
+    probability: true
+
+  decision_tree:
+    criterion: "gini"
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    class_weight: "balanced"
+
+  random_forest:
+    n_estimators: 300
+    criterion: "gini"
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    bootstrap: true
+    n_jobs: -1
+    class_weight: "balanced"
+    random_state: 42
+
+  adaboost:
+    n_estimators: 200
+    learning_rate: 0.5
+    algorithm: "SAMME.R"
+    random_state: 42
