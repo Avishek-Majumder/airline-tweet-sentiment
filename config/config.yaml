@@ -1,0 +1,62 @@
+project:
+  name: airline_tweet_sentiment
+  random_seed: 42
+
+paths:
+  data_root: data
+  raw: data/raw
+  processed: data/processed
+  models: models
+  logs: runs
+  outputs: outputs
+
+datasets:
+  airline_us:
+    filename: airline_tweets_us.csv      # Kaggle US airline dataset (raw)
+    text_column: text
+    label_column: label
+  airline_global:
+    filename: airline_tweets_global.csv  # Second airline dataset (raw)
+    text_column: text
+    label_column: label
+  airline_merged:
+    filename: airline_tweets_merged.csv  # Merged dataset (derived)
+    text_column: text
+    label_column: label
+
+labels:
+  mapping:
+    negative: 0
+    neutral: 1
+    positive: 2
+
+split:
+  test_size: 0.2      # 20% test
+  val_size: 0.1       # 10% of (train+val) used for validation
+  stratify: true
+
+preprocessing:
+  lowercase: true
+  remove_urls: true
+  remove_user_mentions: true
+  remove_hashtags_symbol_only: true  # keep hashtag word, drop "#"
+  remove_punctuation: true
+  remove_numbers: false
+  remove_emojis: true
+  strip_whitespace: true
+  stopwords: english
+  stemming: porter
+  max_length: 60   # max tokens for CNN–BiLSTM / transformers truncation
+
+augmentation:
+  enabled: true
+  apply_to:
+    - negative
+    - neutral
+    - positive
+  target_class_balance: "max_class"  # upsample minority classes to majority size
+  operations:
+    synonym_replacement_prob: 0.1
+    random_insertion_prob: 0.05
+    random_swap_prob: 0.05
+    random_deletion_prob: 0.02
