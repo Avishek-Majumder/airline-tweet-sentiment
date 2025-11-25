@@ -1,28 +1,21 @@
-# Core
-numpy>=1.24
-pandas>=2.0
-scipy>=1.10
+# Core utilities
+numpy>=1.24.0
+pandas>=2.0.0
+pyyaml>=6.0.0
+tqdm>=4.66.0
 
 # Classical ML
-scikit-learn>=1.3
+scikit-learn>=1.3.0
 
-# Text processing / embeddings
-gensim>=4.3
-nltk>=3.8
+# NLP preprocessing & embeddings
+nltk>=3.8.1
+gensim>=4.3.0
 
 # Deep learning (CNN–BiLSTM)
-torch>=2.0
-torchvision>=0.15
+torch>=2.0.0
 
 # Transformers
-transformers>=4.44
-datasets>=2.20
+transformers>=4.40.0
 
-# Utilities
-tqdm>=4.66
-pyyaml>=6.0
-matplotlib>=3.8
-seaborn>=0.13
-
-# Jupyter / notebooks (optional but useful)
-jupyterlab>=4.0
+# Optional: for running scripts as modules & general tooling
+matplotlib>=3.8.0
