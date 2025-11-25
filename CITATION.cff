@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Airline Tweet Sentiment – Exploring Transformer Models for Sentiment Analysis in Airline Service Reviews"
+version: "0.1.0"
+doi: "10.1109/COMPAS60761.2024.10796289"
+date-released: "2025-01-01"
+url: "https://github.com/your-username/airline-tweet-sentiment"
+
+authors:
+  - family-names: "Majumder"
+    given-names: "Avishek"
+  - family-names: "Akter"
+    given-names: "Tahmina"
+  - family-names: "Mahmud"
+    given-names: "Tanjim"
+  - family-names: "Uddin"
+    given-names: "Borhan"
+  - family-names: "Andersson"
+    given-names: "Karl"
+
+preferred-citation:
+  type: conference-paper
+  title: "Exploring Transformer Models for Sentiment Analysis in Airline Service Reviews"
+  authors:
+    - family-names: "Mahmud"
+      given-names: "Tanjim"
+    - family-names: "Uddin"
+      given-names: "Borhan"
+    - family-names: "Akter"
+      given-names: "Tahmina"
+    - family-names: "Majumder"
+      given-names: "Avishek"
+    - family-names: "Aziz"
+      given-names: "Md. Faisal Bin Abdul"
+    - family-names: "Hossain"
+      given-names: "Md. Sajid"
+    - family-names: "Andersson"
+      given-names: "Karl"
+  conference:
+    name: "2024 IEEE International Conference on Computing, Applications and Systems (COMPAS)"
+  year: 2024
+  doi: "10.1109/COMPAS60761.2024.10796289"
+  url: "https://ieeexplore.ieee.org/document/10796289"
